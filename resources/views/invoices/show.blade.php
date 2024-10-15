@@ -1,6 +1,7 @@
 <x-app-layout>
-    <div class="container mx-auto py-8" @if(app()->getLocale() == 'ar') dir="rtl" @endif>
-        <h1 class="text-3xl font-bold text-gray-800 mb-6">{{ __('messages.invoice') }} #{{ $invoice->invoice_number }}</h1>
+    <div class="container mx-auto py-8" @if (app()->getLocale() == 'ar') dir="rtl" @endif>
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">{{ __('messages.invoice') }} #{{ $invoice->invoice_number }}
+        </h1>
 
         <!-- Client and Invoice Information -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -28,6 +29,8 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             {{ __('messages.item') }}</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            {{ __('messages.img') }}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             {{ __('messages.quantity') }}</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             {{ __('messages.unit_price') }}</th>
@@ -44,10 +47,29 @@
                                     <span class="text-green-500">({{ __('messages.service') }})</span>
                                 @endif
                             </td>
+                            <td class="px-6 py-4">
+                                @if ($item->product && $item->product->image)
+                                    <img src="{{ Storage::url($item->product ? $item->product->image : $item->service->image) }}"
+                                        alt="{{ $item->product ? $item->product->name : $item->service->name }}"
+                                        class="w-16 h-16 object-cover rounded-full cursor-pointer">
+                                @else
+                                 <img src="{{ asset('images/Dufult_product.png') }}" alt="No Image"
+                                    class="w-16 h-16 object-cover rounded-lg ">
+                                @endif
+                            </td>
+
+
+
                             <td class="px-6 py-4">{{ $item->quantity }}</td>
                             <td class="px-6 py-4">
                                 @php
-                                    $unitPrice = $item->unit_price ?? ($item->product ? $item->product->price : ($item->service ? $item->service->price : 0));
+                                    $unitPrice =
+                                        $item->unit_price ??
+                                        ($item->product
+                                            ? $item->product->price
+                                            : ($item->service
+                                                ? $item->service->price
+                                                : 0));
                                 @endphp
                                 {{ number_format($unitPrice, 2) }} MAD
                             </td>

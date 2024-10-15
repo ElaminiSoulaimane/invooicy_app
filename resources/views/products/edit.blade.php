@@ -10,14 +10,20 @@
                     class="mt-1 block w-full border-perf-green rounded-[26px] shadow-sm" value="{{ $product->name }}"
                     required>
             </div>
-
+            <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-700">{{ __('messages.image') }}</label>
+                <input type="file" name="image" id="image"
+                    class="mt-1 block w-full border-perf-green rounded-[26px] shadow-sm" accept="image/*">
+                @if ($product->image)
+                    <img src="{{ asset($product->image) }}" alt="Product Image" class="mt-2 w-32 h-32 object-cover">
+                @endif
+            </div>
             <div class="mb-4">
                 <label for="price" class="block text-sm font-medium text-gray-700">{{ __('messages.price') }}</label>
                 <input type="number" name="price" id="price"
                     class="mt-1 block w-full border-perf-green rounded-[26px] shadow-sm" value="{{ $product->price }}"
                     step="0.01" required>
             </div>
-
             <div class="mb-4">
                 <label for="buy_price"
                     class="block text-sm font-medium text-gray-700">{{ __('messages.buy_price') }}</label>
@@ -25,7 +31,6 @@
                     class="mt-1 block w-full border-perf-green rounded-[26px] shadow-sm"
                     value="{{ $product->buy_price }}" step="0.01">
             </div>
-
             <div class="mb-4">
                 <label for="quantity"
                     class="block text-sm font-medium text-gray-700">{{ __('messages.quantity') }}</label>
@@ -33,10 +38,9 @@
                     class="mt-1 block w-full border-perf-green rounded-[26px] shadow-sm"
                     value="{{ $product->quantity }}" required>
             </div>
-
             <button type="submit"
-                class=" bg-perf-black  border border-perf-green text-perf-green px-4 py-2 rounded-[26px] mt-1 block w-full
-                    hover:bg-perf-green hover:  text-perf-black  hover:border-black
+                class="bg-perf-black border border-perf-green text-perf-green px-4 py-2 rounded-[26px] mt-1 block w-full
+                    hover:bg-perf-green hover:text-perf-black hover:border-black
                     transition-colors duration-300 ease-in-out">{{ __('messages.update_product') }}</button>
         </form>
     </div>

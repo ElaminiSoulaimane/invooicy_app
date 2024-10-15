@@ -157,5 +157,7 @@ return [
   'confirm_delete_message' => 'Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.',
   'cancel' => 'Annuler',
   'pricing_summary' => 'Résumé des prix',
+  'img' => 'Image',
+  'no_image' => 'Pas d\'image',
 
 ];
