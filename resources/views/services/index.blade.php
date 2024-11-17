@@ -1,4 +1,6 @@
 <x-app-layout>
+                <x-slot name="title">Services - Invooicy</x-slot>
+
     <div class="container mx-auto py-8">
         <div class="flex items-center justify-between mb-4">
             <h1 class="text-2xl font-bold relative inline-block max-w-[25ch] pb-2">

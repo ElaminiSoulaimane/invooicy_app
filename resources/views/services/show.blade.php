@@ -1,4 +1,6 @@
 <x-app-layout>
+                <x-slot name="title">Services - Invooicy</x-slot>
+
     <div class="container mx-auto py-8">
         <h1 class="text-2xl font-bold mb-4">{{ __('messages.service_details') }}</h1>
         <div class="mb-4">

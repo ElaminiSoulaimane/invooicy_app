@@ -1,5 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Invoice - Invooicy</x-slot>
+
     <div class="container mx-auto py-8">
+        
         <h1 class="text-2xl font-bold mb-4">Edit Payment</h1>
         <form action="{{ route('payments.update', $payment->id) }}" method="POST">
             @csrf

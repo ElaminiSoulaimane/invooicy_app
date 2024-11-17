@@ -1,24 +1,31 @@
 <x-app-layout>
     <div class="container mx-auto py-8" @if (app()->getLocale() == 'ar') dir="rtl" @endif>
-        <h1 class="text-3xl font-bold text-gray-800 mb-6">{{ __('messages.invoice') }} #{{ $invoice->invoice_number }}
-        </h1>
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">{{ __('messages.invoice') }} #{{ $invoice->invoice_number }} </h1>
 
         <!-- Client and Invoice Information -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <!-- Client Information -->
             <div class="bg-white shadow-md rounded-lg p-6">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">{{ __('messages.client_information') }}</h3>
-                <p><strong>{{ __('messages.name') }}:</strong> {{ $invoice->client->name }}</p>
-                <p><strong>{{ __('messages.email') }}:</strong> {{ $invoice->client->email }}</p>
-                <p><strong>{{ __('messages.phone') }}:</strong> {{ $invoice->client->phone }}</p>
+                <p><strong class="border-b-2 border-perf-green"> {{ __('messages.name') }} :</strong>
+                    {{ $invoice->client->name }}</p>
+                <p><strong class="border-b-2 border-perf-green">{{ __('messages.email') }} :</strong>
+                    {{ $invoice->client->email }}</p>
+                <p><strong class="border-b-2 border-perf-green">{{ __('messages.phone') }} :</strong>
+                    {{ $invoice->client->phone }}</p>
             </div>
+
             <!-- Invoice Details -->
             <div class="bg-white shadow-md rounded-lg p-6">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">{{ __('messages.invoice_details') }}</h3>
-                <p><strong>{{ __('messages.date') }}:</strong> {{ $invoice->created_at->format('F d, Y') }}</p>
-                <p><strong>{{ __('messages.time') }}:</strong> {{ $invoice->created_at->format('h:i A') }}</p>
-                <p><strong>{{ __('messages.status') }}:</strong> {{ ucfirst($invoice->status) }}</p>
+                <p><strong class="border-b-2 border-perf-green">{{ __('messages.date') }} :</strong>
+                    {{ $invoice->created_at->format('F d, Y') }}</p>
+                <p><strong class="border-b-2 border-perf-green">{{ __('messages.time') }} :</strong>
+                    {{ $invoice->created_at->format('h:i A') }}</p>
+                <p><strong class="border-b-2 border-perf-green">{{ __('messages.status') }} :</strong>
+                    {{ ucfirst($invoice->status) }}</p>
             </div>
+
         </div>
 
         <!-- Invoice Items Table -->
@@ -53,8 +60,8 @@
                                         alt="{{ $item->product ? $item->product->name : $item->service->name }}"
                                         class="w-16 h-16 object-cover rounded-full cursor-pointer">
                                 @else
-                                 <img src="{{ asset('images/Dufult_product.png') }}" alt="No Image"
-                                    class="w-16 h-16 object-cover rounded-lg ">
+                                    <img src="{{ asset('images/Dufult_product.png') }}" alt="No Image"
+                                        class="w-16 h-16 object-cover rounded-lg ">
                                 @endif
                             </td>
 

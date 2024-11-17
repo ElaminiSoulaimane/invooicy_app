@@ -5,18 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
-    <title>{{ config('app.name', 'Invooicy') }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>{{ $title ?? config('app.name', 'Invooicy') }}</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+    <!-- Linking the local Font Awesome CSS file -->
+    <link rel="stylesheet" href="{{ asset('css/fontawesome/all.min.css') }}">
+    <!-- Linking the local fonts file -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/css/fontawesome/all.min.css', 'resources/js/app.js', 'resources\css\fonts.css'])
 </head>
 
 <body class="font-sans antialiased">

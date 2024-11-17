@@ -1,4 +1,6 @@
 <x-app-layout>
+                    <x-slot name="title">Products - Invooicy</x-slot>
+
     <style>
         #image-modal {
             display: flex;

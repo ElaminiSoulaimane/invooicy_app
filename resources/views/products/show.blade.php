@@ -1,4 +1,6 @@
 <x-app-layout>
+                    <x-slot name="title">Products - Invooicy</x-slot>
+
     <div class="container mx-auto py-12">
         <h1 class="text-3xl font-semibold mb-8 text-gray-800">{{ __('messages.product_details') }}</h1>
 

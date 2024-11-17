@@ -1,4 +1,6 @@
 <x-app-layout>
+                <x-slot name="title">Products - Invooicy</x-slot>
+
     <div class="container mx-auto py-8">
         <h1 class="text-2xl font-bold mb-4">{{ __('messages.add_product') }}</h1>
         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
